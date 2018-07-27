@@ -24,9 +24,9 @@ describe('payload', function () {
 
     let answer;
 
-    /**
-     * you code here
-     */
+    answer = payload.data.filter((elem, i, thisArr) =>
+      thisArr.indexOf(elem.attrs.color) === thisArr.lastIndexOf(elem.attrs.color)).join(',');
+    return answer;
 
     assert.equal(answer, 'red,yellow');
 
@@ -36,9 +36,8 @@ describe('payload', function () {
 
     let answer;
 
-    /**
-     * you code here
-     */
+      answer = payload.data.map(elem => elem.id).join(',');
+      return answer;
 
     assert.equal(answer, '1,3,6,4,2');
 
@@ -48,9 +47,8 @@ describe('payload', function () {
 
     let answer;
 
-    /**
-     * you code here
-     */
+      answer = payload.data.reduce((acc, cur) => acc + cur.attrs.price, 0);
+      return answer;
 
     assert.equal(answer, 42800);
 
@@ -60,9 +58,8 @@ describe('payload', function () {
 
     let answer;
 
-    /**
-     * you code here
-     */
+      answer = payload.data.filter(elem => elem.owners.includes(people.johnSmith)).reduce((acc, cur) => acc + cur.attrs.price, 0);
+      return answer;
 
     assert.equal(answer, 25000);
 
@@ -72,10 +69,8 @@ describe('payload', function () {
 
     let answer;
 
-    /**
-     * you code here
-     */
-
+      answer = people.johnSmith.cities.concat(people.elizabethComstock.cities);
+      return answer;
     assert.equal(answer, 'New York,Boston,Columbia,Rapture');
 
   });
