@@ -9,10 +9,12 @@ describe('payload', function () {
   it('car quantity with owners older than 20 years', function () {
 
     let answer;
+    const currentYear = new Date().getFullYear();
 
-    /**
-     * you code here
-     */
+    answer = payload.data.filter(car =>
+        currentYear - car.attrs.year > 20);
+    return answer;
+
 
     assert.equal(answer, 2);
 
